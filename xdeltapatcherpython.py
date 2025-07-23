@@ -5,17 +5,6 @@ import github
 from github import *
 
 
-login = input("Enter your GitHub username: ")
-password = input("Enter your GitHub password: ")
-
-g = github.Github(login, password)
-
-
-repo = g.get_user().get_repo("")
-file = repo.get_file_contents("/your_file.txt")
-
-# update
-repo.update_file("/your_file.txt", "your_commit_message", "your_new_file_content", file.sha)
 
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
@@ -52,7 +41,7 @@ class App(customtkinter.CTk):
 
         dropdown1.add_option(option="Exit", command=self.quit)
 
-        # Dropdown for 'About'
+
         dropdown2 = CustomDropdownMenu(widget=button_2)
         dropdown2.add_option("Open About Window", command=self.open_toplevel)
 
